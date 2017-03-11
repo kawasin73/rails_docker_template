@@ -22,3 +22,7 @@ git checkout -b ruby-2.4.0-rails-5.0.1 origin/ruby-2.4.0-rails-5.0.1 && script/b
 docker-compose up -d
 docker-compose exec spring rails db:migrate
 ```
+
+## License
+
+MIT
