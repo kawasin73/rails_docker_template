@@ -3,4 +3,5 @@
 cp .env.dev.sample .env.dev
 docker-compose run --rm spring rails db:create
 docker-compose run --rm spring rails db:migrate
+docker-compose run --rm spring bin/yarn install
 docker-compose up -d
