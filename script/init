@@ -2,8 +2,13 @@
 
 cp .env.dev.sample .env.dev
 
-docker-compose run --rm rails rails new . --force --database=postgresql --skip-bundle --skip-git --skip-test --api
+docker-compose build
+
+docker-compose run --rm rails rails new . --force --database=postgresql --skip-bundle --skip-git --skip-test --webpack && bundle update
+docker-compose run --rm rails rails webpacker:install
+docker-compose run --rm rails rails webpacker:install:react
 
 cp -f template/database.yml config/database.yml
+cp -f template/development.server.yml config/webpack/development.server.yml
 
 docker-compose run --rm rails bundle exec spring binstub --all

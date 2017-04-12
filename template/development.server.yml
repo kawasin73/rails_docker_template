@@ -1,0 +1,4 @@
+# Restart webpack-dev-server if you make changes here
+enabled: true
+host: 0.0.0.0
+port: 8080

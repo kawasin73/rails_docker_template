@@ -23,6 +23,13 @@ services:
     ports: []
     tty: false
     stdin_open: false
+  webpack:
+    <<: *app_base
+    command: "bin/webpack-dev-server"
+    ports:
+      - "8080:8080"
+    tty: false
+    stdin_open: false
   db:
     image: "postgres:9.6.2"
     environment:
