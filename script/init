@@ -4,7 +4,7 @@ cp .env.dev.sample .env.dev
 
 docker-compose build
 
-docker-compose run --rm rails rails new . --force --database=postgresql --skip-bundle --skip-git --skip-test --webpack && bundle update
+docker-compose run --rm rails rails new . --force --database=postgresql --skip-bundle --skip-git --skip-test --webpack
 docker-compose run --rm rails rails webpacker:install
 docker-compose run --rm rails rails webpacker:install:react
 
