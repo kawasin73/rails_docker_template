@@ -17,12 +17,6 @@ services:
       - db
     tty: true
     stdin_open: true
-  spring:
-    <<: *app_base
-    command: ["bundle", "exec", "spring", "server"]
-    ports: []
-    tty: false
-    stdin_open: false
   webpack:
     <<: *app_base
     command: "bin/webpack-dev-server"
@@ -31,7 +25,7 @@ services:
     tty: false
     stdin_open: false
   db:
-    image: "postgres:9.6.2"
+    image: "postgres:10.3"
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=password"
