@@ -17,14 +17,17 @@ services:
       - db
     tty: true
     stdin_open: true
-  spring:
+  webpack:
     <<: *app_base
-    command: ["bundle", "exec", "spring", "server"]
-    ports: []
+    command: "bin/webpack-dev-server"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rails
     tty: false
     stdin_open: false
   db:
-    image: "postgres:9.6.2"
+    image: "postgres:10.3"
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=password"
