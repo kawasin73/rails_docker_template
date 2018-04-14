@@ -3,6 +3,8 @@
 !/log/.keep
 !/tmp/.keep
 /public/system
+/public/packs
+/node_modules
 
 .env
 .env.dev
