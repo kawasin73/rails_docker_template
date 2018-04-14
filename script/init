@@ -4,9 +4,8 @@ cp .env.dev.sample .env.dev
 
 docker-compose build
 
-docker-compose run --rm rails bundle exec rails new . --force --database=postgresql --skip-turbolinks --skip-git --skip-test --webpack=react
+docker-compose run --rm rails bundle exec rails new . --force --database=postgresql --skip-turbolinks --skip-git --skip-test
 
 cp -f template/database.yml config/database.yml
-sed -i ".bak" -e "s/host: localhost/host: 0.0.0.0/g" config/webpacker.yml
 
 docker-compose run --rm rails bundle exec spring binstub --all
