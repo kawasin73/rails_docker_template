@@ -27,6 +27,7 @@ git checkout origin/base/ruby-2.5.1-rails-5.2.0
 git branch -d master && git checkout -b master
 script/init && script/bootstrap
 
+docker-compose up -d
 docker-compose exec rails bash
 # access to http://localhost:3000
 ```
@@ -35,12 +36,13 @@ You can also use built app like this.
 
 ```bash
 git clone https://github.com/kawasin73/rails_docker_template.git .
-git checkout base/ruby-2.5.1-rails-5.2.0
+git checkout origin/ruby-2.5.1-rails-5.2.0
 git branch -d master && git checkout -b master
+script/bootstrap
 # initialize credentials.yml.enc
 docker-compose run --rm rails bin/rails credentials:edit
-script/bootstrap
 
+docker-compose up -d
 docker-compose exec rails bash
 # access to http://localhost:3000
 ```
@@ -80,11 +82,11 @@ Please initialize secrets and start to development.
 
 ```bash
 git clone https://github.com/kawasin73/rails_docker_template.git .
-git checkout base/ruby-2.5.1-rails-5.2.0
+git checkout origin/ruby-2.5.1-rails-5.2.0
 git branch -d master && git checkout -b master
+script/bootstrap
 # initialize credentials.yml.enc
 docker-compose run --rm rails bin/rails credentials:edit
-script/bootstrap
 ```
 
 - [ruby-2.5.1-rails-5.2.0](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.5.1-rails-5.2.0)

@@ -3,7 +3,5 @@
 cp .env.dev.sample .env.dev
 docker-compose build
 
-docker-compose run --rm rails rails db:create
-docker-compose run --rm rails rails db:migrate
-
-docker-compose up -d
+docker-compose run --rm rails bin/rails db:create
+docker-compose run --rm rails bin/rails db:migrate
