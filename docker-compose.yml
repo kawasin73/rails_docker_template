@@ -21,7 +21,7 @@ services:
     <<: *app_base
     command: "bin/webpack-dev-server"
     ports:
-      - "8080:8080"
+      - "3035:3035"
     depends_on:
       - rails
     tty: false
