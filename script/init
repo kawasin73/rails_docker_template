@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+cp .env.dev.sample .env.dev
+
+docker-compose build
+
+docker-compose run --rm rails bundle exec rails new . --force --database=postgresql --skip-turbolinks --skip-git --skip-test
+
+cp -f template/database.yml config/database.yml
+
+docker-compose run --rm rails bundle exec spring binstub --all
