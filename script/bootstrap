@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cp .env.dev.sample .env.dev
+docker-compose build
+
+docker-compose run --rm rails bin/rails db:create
+docker-compose run --rm rails bin/rails db:migrate
+docker-compose run --rm rails bin/yarn install
