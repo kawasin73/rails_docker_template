@@ -1,20 +1,31 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: mysql2
+  encoding: utf8
+  charset: utf8
+  collation: utf8_unicode_ci
+  pool: 30
   username: <%= ENV.fetch('DATABASE_USER') { 'root' } %>
   password: <%= ENV.fetch('DATABASE_PASSWORD') { 'password' } %>
-  host: <%= ENV.fetch('DATABASE_HOST') { 'localhost' } %>
-  port: <%= ENV.fetch('DATABASE_PORT') { 5432 } %>
+  read_timeout: 120
+  write_timeout: 120
 
 development:
   <<: *default
-  database: app_development
+  host: mysql
+  username: root
+  password: root
+  database: <%= ENV['DB_DATABASE'] %>
 
 test:
   <<: *default
-  database: app_test
+  host: mysql
+  username: root
+  password: root
+  database: <%= ENV['DB_DATABASE_TEST'] %>
 
 production:
   <<: *default
-  database: app_production
+  host: mysql
+  username: root
+  password: root
+  database: <%= ENV['DB_DATABASE'] %>

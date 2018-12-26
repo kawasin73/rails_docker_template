@@ -3,32 +3,32 @@ services:
   rails:
     build:
       context: .
-      dockerfile: "Dockerfile.dev"
+      dockerfile: Dockerfile.dev
     command: "bundle exec rails s -p 3000 -b 0.0.0.0"
     env_file:
-      - "./.env.dev"
+      - ./.env.dev
     volumes:
-      - ".:/app"
+      - .:/app
     volumes_from:
       - data
     ports:
-      - "3000:3000"
+      - 3000:3000
     depends_on:
-      - db
-  db:
-    image: "postgres:10.3"
+      - mysql
+  mysql:
+    image: mysql:5.7.17
+    hostname: mysql
     environment:
-      - "POSTGRES_USER=postgres"
-      - "POSTGRES_PASSWORD=password"
+      MYSQL_ROOT_PASSWORD: root
     volumes_from:
       - data
     ports:
-      - "5432:5432"
+      - 13306:3306
   data:
-    image: "busybox"
+    image: busybox
     volumes:
-      - "db:/var/lib/postgresql/data"
-      - "bundle:/usr/local/bundle"
+      - db:/var/lib/mysql
+      - bundle:/usr/local/bundle
 
 volumes:
   db:

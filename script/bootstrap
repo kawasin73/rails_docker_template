@@ -5,3 +5,4 @@ docker-compose build
 
 docker-compose run --rm rails bin/rails db:create
 docker-compose run --rm rails bin/rails db:migrate
+docker-compose up
