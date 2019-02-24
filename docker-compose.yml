@@ -7,6 +7,8 @@ services:
     command: ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
     env_file:
       - "./.env.dev"
+    environment:
+      - "WEBPACKER_DEV_SERVER_HOST=webpack"
     volumes:
       - ".:/app"
     volumes_from:
@@ -20,6 +22,8 @@ services:
   webpack:
     <<: *app_base
     command: "bin/webpack-dev-server"
+    environment:
+      - "WEBPACKER_DEV_SERVER_HOST=0.0.0.0"
     ports:
       - "3035:3035"
     depends_on:
