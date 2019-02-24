@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 cp .env.dev.sample .env.dev
 
 docker-compose build
