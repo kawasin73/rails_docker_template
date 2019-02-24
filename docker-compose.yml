@@ -27,7 +27,7 @@ services:
     tty: false
     stdin_open: false
   db:
-    image: "postgres:10.3"
+    image: "postgres:11.2"
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=password"
