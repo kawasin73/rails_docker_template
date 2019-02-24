@@ -16,7 +16,7 @@ services:
     depends_on:
       - db
   db:
-    image: "postgres:10.3"
+    image: "postgres:11.2"
     environment:
       - "POSTGRES_USER=postgres"
       - "POSTGRES_PASSWORD=password"
