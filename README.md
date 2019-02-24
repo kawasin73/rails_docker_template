@@ -75,6 +75,8 @@ script/init && script/bootstrap
 - [base/ruby-2.5.1-rails-5.2.0-webpack](https://github.com/kawasin73/rails_docker_template/tree/base/ruby-2.5.1-rails-5.2.0-webpack)
 - [base/ruby-2.5.1-rails-5.2.1](https://github.com/kawasin73/rails_docker_template/tree/base/ruby-2.5.1-rails-5.2.1)
 - [base/ruby-2.5.1-rails-5.2.1-webpack](https://github.com/kawasin73/rails_docker_template/tree/base/ruby-2.5.1-rails-5.2.1-webpack)
+- [base/ruby-2.6.1-rails-5.2.2](https://github.com/kawasin73/rails_docker_template/tree/base/ruby-2.6.1-rails-5.2.2)
+- [base/ruby-2.6.1-rails-5.2.2-webpack](https://github.com/kawasin73/rails_docker_template/tree/base/ruby-2.6.1-rails-5.2.2-webpack)
 
 ### built branch
 
@@ -95,6 +97,8 @@ docker-compose run --rm rails bin/rails credentials:edit
 - [ruby-2.5.1-rails-5.2.0-webpack](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.5.1-rails-5.2.0-webpack)
 - [ruby-2.5.1-rails-5.2.1](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.5.1-rails-5.2.1)
 - [ruby-2.5.1-rails-5.2.1-webpack](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.5.1-rails-5.2.1-webpack)
+- [ruby-2.6.1-rails-5.2.2](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.6.1-rails-5.2.2)
+- [ruby-2.6.1-rails-5.2.2-webpack](https://github.com/kawasin73/rails_docker_template/tree/ruby-2.6.1-rails-5.2.2-webpack)
 
 ## License
 
