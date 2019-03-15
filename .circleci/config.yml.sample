@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:{{RUBY_VERSION}}
+      - image: circleci/ruby:{{RUBY_VERSION}}-node-browsers
         environment: # environment variables for primary container
           BUNDLE_JOBS: 4
           BUNDLE_RETRY: 3
@@ -45,6 +45,21 @@ jobs:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
+
+      - restore_cache:
+          keys:
+            - v1-node_modules-{{ checksum "yarn.lock" }}
+            - v1-node_modules-
+
+#       - run:
+#           name: install node_modules
+#           command: |
+#             bin/yarn install
+
+      - save_cache:
+          paths:
+            - ./node_modules
+          key: v1-node_modules-{{ checksum "yarn.lock" }}
 
       - run:
           name: Test
