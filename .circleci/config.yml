@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+        - webpacker
+
+    machine: true
+
+    steps:
+
+      - checkout
+
+      - run:
+          name: Release
+          command: sh script/release.sh
