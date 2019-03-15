@@ -1,0 +1,51 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/ruby:{{RUBY_VERSION}}
+        environment: # environment variables for primary container
+          BUNDLE_JOBS: 4
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+          DATABASE_HOST: 127.0.0.1
+          DATABASE_USER: circleci-ruby
+          DATABASE_PASSWORD: ""
+          RAILS_ENV: test
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      - image: circleci/postgres:11.2-alpine-ram
+        environment: # environment variables for database
+          POSTGRES_USER: circleci-ruby
+          POSTGRES_DB: app_test
+          POSTGRES_PASSWORD: ""
+
+    working_directory: ~/repo
+
+    steps:
+
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+
+      - run:
+          name: Test
+          command: echo do test!
