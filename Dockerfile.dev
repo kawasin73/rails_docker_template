@@ -1,5 +1,5 @@
 FROM node:11.10.0 as node
-FROM ruby:2.6.1
+FROM ruby:2.6.2
 
 ENV LANG C.UTF-8
 
