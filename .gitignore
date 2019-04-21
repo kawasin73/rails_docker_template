@@ -1,0 +1,17 @@
+/log
+/tmp
+!/log/.keep
+!/tmp/.keep
+/public/system
+/public/packs
+/node_modules
+
+.env
+.env.dev
+
+/.bundle
+/vendor/bundle
+
+/.idea
+
+.DS_Store
